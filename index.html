@@ -26,7 +26,7 @@
 
     header {
       text-align: center;
-      padding: 4em 1em;
+      padding: 1em 1em;
       background: rgba(0, 0, 0, 0.6);
     }
 
@@ -59,18 +59,6 @@
 
     .hero-btn:hover {
       background: #009b8c;
-    }
-
-    .toggle-btn {
-      position: fixed;
-      top: 1em;
-      right: 1em;
-      background: #00bfa5;
-      color: #1e1e1e;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 20px;
-      cursor: pointer;
     }
 
     .glass {
@@ -131,8 +119,6 @@
 </head>
 <body>
 
-  <button class="toggle-btn" onclick="toggleTheme()">🌓 Theme</button>
-
   <header>
     <img src="logo.png" alt="DeTech Logo" />
     <h1>DeTech Solutions</h1>
@@ -142,25 +128,13 @@
 
   <section class="glass" id="services">
     <h2>🛠️ Our Services</h2>
-    <div class="card"><i class="fas fa-code"></i> Web Development</div>
-    <div class="card"><i class="fas fa-network-wired"></i> API Integration & Troubleshooting</div>
     <div class="card"><i class="fas fa-cloud-upload-alt"></i> System Deployment & Support</div>
-    <div class="card"><i class="fas fa-gamepad"></i> Custom Gaming Tools</div>
+    <div class="card"><i class="fas fa-gamepad"></i> Custom Work, Home or Gaming setup</div>
   </section>
 
-  <section class="glass" id="projects">
-    <h2>📁 Recent Projects</h2>
-    <p>Call of Duty Stats Tracker using Tracker Network API, deployed via Vercel with responsive design and clean UI.</p>
-  </section>
-
-  <section class="glass" id="about">
-    <h2>👨🏽‍💻 About Me</h2>
-    <p>I’m De — a persistent developer blending tech and gaming to craft smart, user-centered solutions with clean design and strong code.</p>
-  </section>
-
-  <section class="glass" id="contact">
+   <section class="glass" id="contact">
     <h2>📬 Contact Me</h2>
-    <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <form action="https://formspree.io/f/mblkrngj" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="_replyto" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
@@ -171,12 +145,6 @@
   <footer>
     <p>© 2025 DeTech Solutions | Built with 💻 & 🎮</p>
   </footer>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light');
-    }
-  </script>
 
 </body>
 </html>
