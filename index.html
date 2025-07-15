@@ -26,22 +26,22 @@
 
     header {
       text-align: center;
-      padding: 1em 1em;
-      background: rgba(0, 0, 0, 0.6);
+      padding: 2em 1em;
+      background: rgba(0, 0, 0, 0.35);
     }
 
     header img {
       width: 120px;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
     }
 
     header h1 {
-      font-size: 2.8em;
+      font-size: 2.5em;
       margin: 0;
     }
 
     header p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin: 0.5em 0;
     }
 
@@ -49,7 +49,7 @@
       background: #00bfa5;
       color: #1e1e1e;
       border: none;
-      padding: 0.7em 1.5em;
+      padding: 0.6em 1.2em;
       margin-top: 1em;
       font-weight: bold;
       cursor: pointer;
@@ -63,7 +63,7 @@
 
     .glass {
       backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.35);
       border-radius: 15px;
       padding: 2em;
       margin: 2em auto;
@@ -82,6 +82,20 @@
       margin: 1em 0;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.3em;
+      color: #00bfa5;
+    }
+
+    .card ul {
+      padding-left: 1em;
+    }
+
+    .card li {
+      margin-bottom: 0.5em;
     }
 
     form input, form textarea, form button {
@@ -128,11 +142,35 @@
 
   <section class="glass" id="services">
     <h2>🛠️ Our Services</h2>
-    <div class="card"><i class="fas fa-cloud-upload-alt"></i> System Deployment & Support</div>
-    <div class="card"><i class="fas fa-gamepad"></i> Custom Work, Home or Gaming setup</div>
+
+    <div class="card">
+      <h3><i class="fas fa-cloud-upload-alt"></i> System Support</h3>
+      <p><strong>From setup to scalability — I’ve got it covered.</strong></p>
+      <ul>
+        <li>🔍 Performance monitoring and uptime tracking</li>
+        <li>🔧 Hardware and software maintenance</li>
+        <li>🔄 Scheduled patching and security updates</li>
+        <li>🧯 Rapid incident response with rollback strategies</li>
+        <li>📞 Admin support</li>
+      </ul>
+      <p>Stable systems. Smooth experiences. You stay focused on growth — I handle the tech.</p>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-desktop"></i> Custom Work, Home & Gaming Setups</h3>
+      <p><strong>Tailored environments for productivity, comfort, and performance.</strong></p>
+      <ul>
+        <li>💼 <strong>Workstations:</strong> Ergonomic desks, dual monitors, cable management, and lighting for focus and efficiency</li>
+        <li>🏡 <strong>Home Setups:</strong> Compact layouts, smart accessories, and ambient lighting for casual use and relaxation</li>
+        <li>🎮 <strong>Gaming Rigs:</strong> High-refresh monitors, RGB lighting, gaming chairs, and immersive sound systems</li>
+        <li>🧩 <strong>Hybrid Zones:</strong> Zoned layouts for work/play, shared peripherals, and smart lighting scenes</li>
+        <li>🛠️ <strong>Personalization:</strong> Desk builds, wall mounts, storage solutions, and aesthetic themes to match your vibe</li>
+      </ul>
+      <p>Whether you're coding, chilling, or competing — I’ll design a setup that fits your lifestyle and elevates your space.</p>
+    </div>
   </section>
 
-   <section class="glass" id="contact">
+  <section class="glass" id="contact">
     <h2>📬 Contact Me</h2>
     <form action="https://formspree.io/f/mblkrngj" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
