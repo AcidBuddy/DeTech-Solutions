@@ -5,133 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeTech Solutions</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-  <!-- Font Awesome Icons -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="DeTech Solutions offers web development, API troubleshooting, and gaming tools." />
-  <meta name="keywords" content="IT services, web development, gaming tools, DeTech Solutions" />
-
-  <!-- Dark Mode Styles -->
   <style>
     body {
-      font-family: 'Rajdhani', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-      transition: background 0.5s, color 0.5s;
+      font-family: 'Poppins', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .dark-theme {
-      background-color: #1e1e1e;
-      color: #f4f4f4;
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 2em;
+      margin: 2em auto;
+      max-width: 1000px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     header {
-      background: #00bfa5;
-      color: #fff;
-      padding: 3em 1em;
       text-align: center;
+      padding: 4em 1em;
+      background: rgba(0, 0, 0, 0.5);
     }
 
-    button {
-      background: #1e1e1e;
-      color: #fff;
+    header img {
+      width: 120px;
+      margin-bottom: 1em;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin: 0.5em 0;
+    }
+
+    .hero-btn {
+      background: #00bfa5;
+      color: #1e1e1e;
       border: none;
       padding: 0.7em 1.5em;
       margin-top: 1em;
-      cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
 
-    button:hover {
-      background: #333;
+    .hero-btn:hover {
+      background: #009b8c;
     }
 
-    section {
-      padding: 2em 1em;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    h2 {
+      border-bottom: 2px solid #00bfa5;
+      margin-bottom: 1em;
+      text-align: left;
     }
 
     .card {
-      background: #fff;
+      background: rgba(255,255,255,0.1);
       padding: 1em;
       margin: 1em 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
-    .dark-theme .card {
-      background: #333;
-      color: #fff;
-    }
-
-    form input, form textarea {
+    form input, form textarea, form button {
       width: 100%;
       padding: 0.8em;
       margin-bottom: 1em;
-      border: 1px solid #ccc;
+      border: none;
+      border-radius: 6px;
     }
 
     form button {
-      width: 100%;
+      background: #00bfa5;
+      color: #1e1e1e;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     footer {
-      background: #222;
-      color: #ccc;
       text-align: center;
-      padding: 1em;
+      padding: 2em;
+      font-size: 0.9em;
+      background: rgba(0, 0, 0, 0.5);
+      margin-top: 2em;
     }
 
     .toggle-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
+      position: fixed;
+      top: 1em;
+      right: 1em;
+      background: #00bfa5;
+      color: #1e1e1e;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      .glass {
+        margin: 1em;
+      }
     }
   </style>
 </head>
 <body>
 
-  <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  <button class="toggle-btn" onclick="toggleTheme()">🌓 Theme</button>
 
   <header>
+    <img src="logo.png" alt="DeTech Logo" />
     <h1>DeTech Solutions</h1>
     <p>Empowering Businesses Through Smart IT Solutions</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get a Free Consultation</button>
+    <button class="hero-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get a Free Consultation</button>
   </header>
 
-  <section id="services">
-    <h2><i class="fas fa-cogs"></i> Our Services</h2>
-    <div class="card"><i class="fas fa-laptop-code"></i> Web Development</div>
-    <div class="card"><i class="fas fa-plug"></i> API Integration & Troubleshooting</div>
-    <div class="card"><i class="fas fa-server"></i> System Deployment & Support</div>
+  <section class="glass" id="services">
+    <h2>🛠️ Our Services</h2>
+    <div class="card"><i class="fas fa-code"></i> Web Development</div>
+    <div class="card"><i class="fas fa-network-wired"></i> API Integration & Troubleshooting</div>
+    <div class="card"><i class="fas fa-cloud-upload-alt"></i> System Deployment & Support</div>
     <div class="card"><i class="fas fa-gamepad"></i> Custom Gaming Tools</div>
   </section>
 
-  <section id="projects">
-    <h2><i class="fas fa-folder-open"></i> Recent Projects</h2>
-    <p>Call of Duty Stats Tracker using Tracker Network API, deployed on Vercel with clean file structure and responsive UI.</p>
+  <section class="glass" id="projects">
+    <h2>📁 Recent Projects</h2>
+    <p>Call of Duty Stats Tracker using Tracker Network API, deployed on Vercel with responsive design and clean UI.</p>
   </section>
 
-  <section id="about">
-    <h2><i class="fas fa-user-gear"></i> About Me</h2>
-    <p>I’m De — a persistent and adaptable problem-solver focused on delivering clean design, functional integration, and meaningful user experiences. I blend tech skills with my love of gaming to create smart solutions.</p>
+  <section class="glass" id="about">
+    <h2>👨🏽‍💻 About Me</h2>
+    <p>I’m De — a persistent developer with a passion for blending tech and gaming. I build functional, user-centered experiences using clean code and creative problem-solving.</p>
   </section>
 
-  <section id="contact">
-    <h2><i class="fas fa-envelope"></i> Contact</h2>
+  <section class="glass" id="contact">
+    <h2>📬 Contact Me</h2>
     <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="_replyto" placeholder="Your Email" required />
@@ -141,23 +170,13 @@
   </section>
 
   <footer>
-    <p>© 2025 DeTech Solutions</p>
+    <p>© 2025 DeTech Solutions | Built with 💻 & 🎮</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
+      document.body.classList.toggle('light');
     }
-
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('section').forEach(sec => {
-        const secTop = sec.getBoundingClientRect().top;
-        if (secTop < window.innerHeight - 100) {
-          sec.classList.add('visible');
-        }
-      });
-    });
   </script>
 </body>
 </html>
