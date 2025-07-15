@@ -15,8 +15,10 @@
   <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
 
   <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
@@ -26,23 +28,29 @@
 
     header {
       text-align: center;
-      padding: 0.5em 1em;
+      padding: 2em 1em;
       background: rgba(0, 0, 0, 0.35);
     }
 
-    header img {
-      width: 120px;
+    /* Logo + Title Inline */
+    .logo-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
       margin-bottom: 0.5em;
     }
-
-    header h1 {
+    .logo-title img {
+      width: 100px;
+      height: auto;
+    }
+    .logo-title h1 {
       font-size: 2.5em;
-      margin: 0;
+      color: #fff;
     }
 
     header p {
       font-size: 1.1em;
-      margin: 0.5em 0;
+      margin-bottom: 1em;
     }
 
     .hero-btn {
@@ -50,13 +58,11 @@
       color: #1e1e1e;
       border: none;
       padding: 0.6em 1.2em;
-      margin-top: 1em;
       font-weight: bold;
       cursor: pointer;
       border-radius: 8px;
       transition: background 0.3s ease;
     }
-
     .hero-btn:hover {
       background: #009b8c;
     }
@@ -67,7 +73,7 @@
       border-radius: 15px;
       padding: 2em;
       margin: 2em auto;
-      max-width: 1000px;
+      max-width: 1200px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
@@ -76,37 +82,68 @@
       margin-bottom: 1em;
     }
 
+    /* Services Grid: Four in a Row */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    @media screen and (max-width: 768px) {
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .card {
       background: rgba(255,255,255,0.1);
       padding: 1em;
-      margin: 1em 0;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      position: relative;
     }
-
     .card h3 {
-      margin-top: 0;
       font-size: 1.3em;
       color: #00bfa5;
+      margin-bottom: 0.5em;
+    }
+
+    /* Hover-to-Drop-Down */
+    .card-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .card-content > * {
+      opacity: 0;
+      transition: opacity 0.3s ease 0.1s;
+    }
+    .card:hover .card-content {
+      max-height: 500px;
+    }
+    .card:hover .card-content > * {
+      opacity: 1;
     }
 
     .card ul {
       padding-left: 1em;
+      margin-top: 0.5em;
     }
-
     .card li {
       margin-bottom: 0.5em;
     }
 
-    form input, form textarea, form button {
+    /* Contact Form */
+    #contact form input,
+    #contact form textarea,
+    #contact form button {
       width: 100%;
       padding: 0.8em;
       margin-bottom: 1em;
       border: none;
       border-radius: 6px;
     }
-
-    form button {
+    #contact form button {
       background: #00bfa5;
       color: #1e1e1e;
       font-weight: bold;
@@ -120,75 +157,76 @@
       background: rgba(0, 0, 0, 0.5);
       margin-top: 2em;
     }
-
-    @media screen and (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-      .glass {
-        margin: 1em;
-      }
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.png" alt="DeTech Logo" />
-    <h1>DeTech Solutions</h1>
+    <div class="logo-title">
+      <img src="logo.png" alt="DeTech Logo" />
+      <h1>DeTech Solutions</h1>
+    </div>
     <p>Empowering Businesses Through Smart IT Solutions</p>
-    <button class="hero-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get a Free Consultation</button>
+    <button class="hero-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+      Get a Free Consultation
+    </button>
   </header>
 
   <section class="glass" id="services">
     <h2>🛠️ Our Services</h2>
+    <div class="services-container">
 
-    <div class="card">
-      <h3><i class="fas fa-cloud-upload-alt"></i> System Support</h3>
-      <p><strong>From setup to scalability — I’ve got it covered.</strong></p>
-      <ul>
-        <li>🔧 Hardware and software maintenance and upgrade</li>
-        <li>🔄 Scheduled patching and security updates</li>
-        <li>📞 Admin support</li>
-      </ul>
-      <p>Stable systems. Smooth experiences. You stay focused on growth — I handle the tech.</p>
+      <!-- System Support -->
+      <div class="card">
+        <h3><i class="fas fa-cloud-upload-alt"></i> System Support</h3>
+        <div class="card-content">
+          <ul>
+            <li>🔧 Hardware & software maintenance</li>
+            <li>🔄 Scheduled patching & security updates</li>
+            <li>📞 Admin support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Custom Work, Home & Gaming Setups -->
+      <div class="card">
+        <h3><i class="fas fa-desktop"></i> Custom Setups</h3>
+        <div class="card-content">
+          <ul>
+            <li>💼 Ergonomic workstations & dual monitors</li>
+            <li>🏡 Home media hubs & ambient lighting</li>
+            <li>🎮 Gaming rigs with RGB & sound systems</li>
+            <li>🧩 Hybrid zones for work & play</li>
+            <li>🛠️ Personalized desk builds & themes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Domain & Email Registration -->
+      <div class="card">
+        <h3><i class="fas fa-globe"></i> Domain & Email</h3>
+        <div class="card-content">
+          <ul>
+            <li>🌐 Secure custom domain registration</li>
+            <li>📧 Branded email via Google Workspace or Outlook</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Networking & Cabling -->
+      <div class="card">
+        <h3><i class="fas fa-network-wired"></i> Networking & Cabling</h3>
+        <div class="card-content">
+          <ul>
+            <li>🧩 Structured cabling for data, voice & video</li>
+            <li>🛠️ Rack & stack: switches, routers & patch panels</li>
+            <li>📏 Site surveys for optimal routing & bandwidth</li>
+            <li>🧯 Troubleshooting & performance certification</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
-
-    <div class="card">
-      <h3><i class="fas fa-desktop"></i> Custom Work, Home & Gaming Setups</h3>
-      <p><strong>Tailored environments for productivity, comfort, and performance.</strong></p>
-      <ul>
-        <li>💼 <strong>Workstations:</strong> Ergonomic desks, dual monitors, cable management, and lighting for focus and efficiency</li>
-        <li>🏡 <strong>Home Setups:</strong> Compact layouts, smart accessories, and ambient lighting for casual use and relaxation</li>
-        <li>🎮 <strong>Gaming Rigs:</strong> High-refresh monitors, RGB lighting, gaming chairs, and immersive sound systems</li>
-        <li>🧩 <strong>Hybrid Zones:</strong> Zoned layouts for work/play, shared peripherals, and smart lighting scenes</li>
-        <li>🛠️ <strong>Personalization:</strong> Desk builds, wall mounts, storage solutions, and aesthetic themes to match your vibe</li>
-      </ul>
-      <p>Whether you're coding, chilling, or competing — I’ll design a setup that fits your lifestyle and elevates your space.</p>
-    </div>
-	
-	<div class="card">
-  <h3><i class="fas fa-globe"></i> Domain & Email Registration</h3>
-  <p><strong>Launch your brand with a complete online identity.</strong></p>
-  <ul>
-    <li>🌐 <strong>Domain Registration:</strong> Secure custom domain names (.com, .tech, .online, etc.) with privacy protection</li>
-    <li>📧 <strong>Professional Email Setup:</strong> Branded email addresses (e.g., info@yourdomain.com) via services like Zoho, Google Workspace, or Outlook</li>
-  </ul>
-  <p>From domain search to inbox setup — I’ll get your business online, secure, and looking sharp.</p>
-</div>
-
-<div class="card">
-  <h3><i class="fas fa-network-wired"></i> Networking & Cabling</h3>
-  <p><strong>Reliable infrastructure for seamless connectivity.</strong></p>
-  <ul>
-    <li>🧩 <strong>Structured Cabling:</strong> Design and installation of organized cable systems for data, voice, and video</li>
-    <li>🛠️ <strong>Network Rack & Stack:</strong> Mounting switches, routers, patch panels, and organizing server cabinets</li>
-    <li>📏 <strong>Site Surveys & Planning:</strong> Assessments for optimal cable routing, bandwidth needs, and scalability</li>
-    <li>🧯 <strong>Troubleshooting & Repairs:</strong> Diagnosing signal loss, replacing damaged lines, and certifying performance</li>
-  </ul>
-  <p>From home to office networks — I build systems that are fast, secure, and built to last.</p>
-</div>
-
   </section>
 
   <section class="glass" id="contact">
@@ -196,7 +234,7 @@
     <form action="https://formspree.io/f/mblkrngj" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="_replyto" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
